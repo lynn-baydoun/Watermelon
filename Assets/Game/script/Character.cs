@@ -17,12 +17,16 @@ public class Character : MonoBehaviour
 
     private float Gravity = -9.8f;
 
+    private Animator _animator;
+
     //getting and storing references to the character controller
     // an Awake function is a built in unity function (its called before the start function)
     private void Awake()
     {
+        //holding references
         _cc = GetComponent<CharacterController>();
         _playerInput = GetComponent<PlayerInput>();
+        _animator = GetComponent<Animator>();
     }
     //changing the velocity based on the player's input
     private void CalculatePlayerMovement()
@@ -30,6 +34,9 @@ public class Character : MonoBehaviour
         _movementVelocity.Set(_playerInput.HorizontalInput, 0f, _playerInput.VerticalInput);
         _movementVelocity.Normalize(); //otherwise the player will move faster when its moving diagonally(this is a built in fct in vector3)
         _movementVelocity = Quaternion.Euler(0, -45f, 0) * _movementVelocity;//to rotate the movement velocity to match the camera view angle
+
+        _animator.SetFloat("Speed", _movementVelocity.magnitude);
+
         _movementVelocity *= MoveSpeed * Time.deltaTime;//to make the movements smooth across frames (Time.deltaTime is the time passed since last frame)
 
         if (_movementVelocity != Vector3.zero)
