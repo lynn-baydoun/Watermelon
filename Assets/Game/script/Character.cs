@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
         _movementVelocity.Normalize(); //otherwise the player will move faster when its moving diagonally(this is a built in fct in vector3)
         _movementVelocity = Quaternion.Euler(0, -45f, 0) * _movementVelocity;//to rotate the movement velocity to match the camera view angle
 
+        //the running animation
         _animator.SetFloat("Speed", _movementVelocity.magnitude);
 
         _movementVelocity *= MoveSpeed * Time.deltaTime;//to make the movements smooth across frames (Time.deltaTime is the time passed since last frame)
@@ -43,6 +44,9 @@ public class Character : MonoBehaviour
         { //to stop the character from snapping back to the default position
             transform.rotation = Quaternion.LookRotation(_movementVelocity); //to make the player rotate
         }
+
+        //the fall animation
+        _animator.SetBool("AirBorne", _cc.isGrounded);
     }
 
     private void FixedUpdate()
