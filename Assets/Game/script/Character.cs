@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         }
 
         //the fall animation
-        _animator.SetBool("AirBorne", _cc.isGrounded);
+        _animator.SetBool("AirBorne", !_cc.isGrounded);
     }
 
     private void FixedUpdate()
