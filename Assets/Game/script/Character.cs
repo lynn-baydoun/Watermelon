@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
 
     private float _verticalVelocity;
 
-    private float Gravity = -9.8f;
+    public float Gravity = -9.8f;
 
     private Animator _animator;
 
