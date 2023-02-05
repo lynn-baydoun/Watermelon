@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private CharacterController _cc;
-    public float MoveSpeed = 5f;
+    public float MoveSpeed = 4f;
     private Vector3 _movementVelocity;
     private PlayerInput _playerInput;
     private float _verticalVelocity;
@@ -27,8 +27,8 @@ public class Character : MonoBehaviour
 
     //Player slides
     private float attackStartTime;
-    public float AttackSlideDuration = 0.4f;
-    public float AttackSlideSpeed = 0.06f;
+    public float AttackSlideDuration = 0.02f;
+    public float AttackSlideSpeed = 1f;
 
     private Vector3 impactOnCharacter;
 

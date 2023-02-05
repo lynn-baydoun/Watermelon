@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 648217057256892318}
   - {fileID: 6931113885203271158}
@@ -59,6 +60,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.31, y: 1.14, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6037216073874002966}
   m_RootOrder: 1
@@ -96,6 +98,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.26, y: 0, z: -6.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6071478422998140804}
   - {fileID: 6037216073489774398}
@@ -104,7 +107,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6037216073874002967
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,10 +120,11 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!143 &6037216073874002968
 CharacterController:
   m_ObjectHideFlags: 0
@@ -134,7 +138,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 4
   m_Radius: 1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 10
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -149,7 +153,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -173,17 +177,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a54c30c0c92354dbf3f24321825402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 2
+  MoveSpeed: 0
   Gravity: -9.8
   Coin: 0
   IsPlayer: 0
-  AttackSlideDuration: 0.4
-  AttackSlideSpeed: 0.06
-  IsInvincible: 0
+  AttackSlideDuration: 0
+  AttackSlideSpeed: 0.5
+  IsInvincible: 1
   invincibleDuration: 2
   SlideSpeed: 9
   CurrentState: 0
-  SpawnDuration: 2
+  SpawnDuration: 1
   ItemToDrop: {fileID: 4452196797243496903, guid: 92acaf922df907d47a131819fc145e9a, type: 3}
 --- !u!114 &6037216073874002971
 MonoBehaviour:
@@ -306,14 +310,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5032253f50fbf924285917747193c530, type: 3}
---- !u!4 &6931113885203271158 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3744957851513120300, guid: 5032253f50fbf924285917747193c530, type: 3}
-  m_PrefabInstance: {fileID: 6037216072999791578}
-  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &6931113885203271152 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 3744957851513120298, guid: 5032253f50fbf924285917747193c530, type: 3}
+  m_PrefabInstance: {fileID: 6037216072999791578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6931113885203271158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3744957851513120300, guid: 5032253f50fbf924285917747193c530, type: 3}
   m_PrefabInstance: {fileID: 6037216072999791578}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6037216073797705839
@@ -503,6 +507,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7105114081832870906, guid: d2099f505e4515644bd8be3774ed2001, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105114081832870906, guid: d2099f505e4515644bd8be3774ed2001, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7695590053380499302, guid: d2099f505e4515644bd8be3774ed2001, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -687,13 +699,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2792d034b3f4154281cad9326455974, type: 3}
---- !u!4 &648217057256892318 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6572561595865496312, guid: c2792d034b3f4154281cad9326455974, type: 3}
-  m_PrefabInstance: {fileID: 6037216074398342502}
-  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &648217057256892313 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 6572561595865496319, guid: c2792d034b3f4154281cad9326455974, type: 3}
+  m_PrefabInstance: {fileID: 6037216074398342502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &648217057256892318 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6572561595865496312, guid: c2792d034b3f4154281cad9326455974, type: 3}
   m_PrefabInstance: {fileID: 6037216074398342502}
   m_PrefabAsset: {fileID: 0}
