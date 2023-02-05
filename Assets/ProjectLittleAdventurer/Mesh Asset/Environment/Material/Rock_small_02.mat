@@ -62,7 +62,7 @@ Material:
     - Color_8b7106704f8646d5a48d98ab24996790: {r: 1, g: 1, b: 1, a: 1}
     - Color_f65123d1bb6c4c2c8a1cc24cfae5e589: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6435687470378425785
+--- !u!114 &4632427358786456293
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
